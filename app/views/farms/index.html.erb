@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      List of all farms
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new farm
+    </h2>
+
+    <form action="/insert_farm" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <button>
+        Create farm
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_farms.each do |a_farm| %>
+      <tr>
+        <td>
+          <%= a_farm.id %>
+        </td>
+
+        <td>
+          <%= a_farm.name %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_farm.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_farm.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/farms/<%= a_farm.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

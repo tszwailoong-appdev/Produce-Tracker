@@ -1,0 +1,71 @@
+<div>
+  <div>
+    <h1>
+      Farm #<%= @the_farm.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/farms">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_farm/<%= @the_farm.id %>">
+          Delete farm
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_farm.name %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_farm.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_farm.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit farm
+    </h2>
+
+    <form action="/modify_farm/<%= @the_farm.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_farm.name %>">
+      </div>
+
+      <button>
+        Update farm
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
