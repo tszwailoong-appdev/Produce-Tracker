@@ -1,4 +1,6 @@
 class FarmsController < ApplicationController
+  has_many(:products, { :class_name => "Product", :foreign_key => "farm_id", :dependent => :destroy })
+  
   def index
     matching_farms = Farm.all
 
