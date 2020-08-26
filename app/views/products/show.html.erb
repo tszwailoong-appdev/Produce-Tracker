@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Product #<%= @the_product.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/products">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_product/<%= @the_product.id %>">
+          Delete product
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Farm
+      </dt>
+      <dd>
+        <%= @the_product.farm_id %>
+      </dd>
+
+      <dt>
+        Product category
+      </dt>
+      <dd>
+        <%= @the_product.product_category_id %>
+      </dd>
+
+      <dt>
+        Units in stock
+      </dt>
+      <dd>
+        <%= @the_product.units_in_stock %>
+      </dd>
+
+      <dt>
+        Photo
+      </dt>
+      <dd>
+        <%= @the_product.photo %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_product.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_product.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit product
+    </h2>
+
+    <form action="/modify_product/<%= @the_product.id %>"  method="post" >
+      <div>
+        <label for="farm_id_box">
+          Farm
+        </label>
+
+        <input type="text" id="farm_id_box" name="query_farm_id" value="<%= @the_product.farm_id %>">
+      </div>
+
+      <div>
+        <label for="product_category_id_box">
+          Product category
+        </label>
+
+        <input type="text" id="product_category_id_box" name="query_product_category_id" value="<%= @the_product.product_category_id %>">
+      </div>
+
+      <div>
+        <label for="units_in_stock_box">
+          Units in stock
+        </label>
+
+        <input type="text" id="units_in_stock_box" name="query_units_in_stock" value="<%= @the_product.units_in_stock %>">
+      </div>
+
+      <div>
+        <label for="photo_box">
+          Photo
+        </label>
+
+        <input type="text" id="photo_box" name="query_photo" value="<%= @the_product.photo %>">
+      </div>
+
+      <button>
+        Update product
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
